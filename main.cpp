@@ -61,7 +61,14 @@ void getFilesInDir(std::filesystem::path path)
 }
 int main(int argc, char const *argv[])
 {
-    getFilesInDir(std::filesystem::current_path());
+    // getFilesInDir();
+    for (auto &log : std::filesystem::directory_iterator(std::filesystem::current_path()))
+    {
+        if (log.is_regular_file())
+        {
+            /* code */
+        }
+    }
     std::ofstream myfile;
     myfile.open("allImageInCsd.txt", std::ios::out);
     for (auto &file : files)
